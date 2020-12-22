@@ -68,6 +68,13 @@ const Overview = styled.p`
   width: 50%;
 `;
 
+const HLink = styled.a`
+font-weight:800;
+background-color: yellow;
+color:black;
+padding: 5px;
+`;
+
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <>
@@ -120,6 +127,13 @@ const DetailPresenter = ({ result, loading, error }) =>
                     : `${genre.name} / `
                 )}
             </Item>
+            
+            {result.imdb_id && (
+              <>
+              <Divider>•</Divider>
+              <HLink href={`https://www.imdb.com/title/${result.imdb_id}`}>IMDB</HLink></>
+              )
+            }
           </ItemContainer>
           <Overview>{result.overview}</Overview>
         </Data>
